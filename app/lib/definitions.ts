@@ -86,3 +86,35 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export type StockDailyPrice = {
+  id: string;
+  symbol: string;
+  date: string;
+  low: number;
+  high: number;
+  close: number;
+  volume: number;
+  created_at: string;
+};
+
+export type NewStockDailyPrice = {
+  date: string;
+  low: number;
+  high: number;
+  close: number;
+  volume: number;
+};
+
+export type CompanyOverviewRow = {
+  id: string;
+  symbol: string;
+  asset_type: string;
+  name: string;
+  description: string;
+  exchange: string;
+  sector: string;
+  industry: string;
+  market_capitalization: string;
+  updated_at: string;
+};
