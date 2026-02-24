@@ -1,0 +1,30 @@
+name: Refresh Stock Data
+
+on:
+  schedule:
+    # Every hour on the half-hour during US market hours (9:30 AM – 4:30 PM ET)
+    # ET = UTC-5 (EST) / UTC-4 (EDT)
+    # 14:30–20:30 UTC covers market hours year-round
+    - cron: '30 14-20 * * 1-5'
+  workflow_dispatch: # allow manual trigger
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install yfinance psycopg2-binary
+
+      - name: Run stock refresh
+        env:
+          POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
+        run: python starterdata.py
