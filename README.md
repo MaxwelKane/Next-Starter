@@ -6,6 +6,8 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 Next JS Tensorwave take home. 
 
+[Link](https://tensorwavetakehome.vercel.app/)
+
 We start with the nextjs dashboard example to quickly get an viable product out. 
 [Click for link](https://github.com/vercel/next-learn/tree/main/dashboard/starter-example)
 
